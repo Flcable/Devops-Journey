@@ -1,20 +1,26 @@
 variable "environment" {
-  type        = string
-  
+  type = string
+
   description = ""
+
+  default = "dev"
 }
 
 
 variable "aws_region" {
-  type        = string
-  
+  type = string
+
   description = ""
+
+  default = "eu-west-3"
 }
 
 variable "aws_profile" {
-  type        = string
-  
+  type = string
+
   description = ""
+
+  default = "default"
 }
 
 
