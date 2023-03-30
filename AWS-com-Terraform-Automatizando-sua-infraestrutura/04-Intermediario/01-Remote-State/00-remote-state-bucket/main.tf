@@ -22,14 +22,15 @@ resource "aws_s3_bucket" "remote-state" {
     enabled = true
   }
 
-    tags = {
-        Description = "Stores Terraformremote files"
-        ManagedBy   = "Terraform"
-        Owner       = "Flavio Cruz"
-        CreatedAt   = "2023-03-10"
 
-    
-}
+  tags = {
+    Description = "Stores Terraformremote files"
+    ManagedBy   = "Terraform"
+    Owner       = "Flavio Cruz"
+    CreatedAt   = "2023-03-29"
+
+
+  }
 }
 
 output "remote_state_bucket" {
