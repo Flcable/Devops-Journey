@@ -1,6 +1,6 @@
 terraform {
 
-  required_version = "0.14.4"
+  required_version = "0.14.8"
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -24,7 +24,7 @@ resource "aws_s3_bucket" "remote-state" {
 
 
   tags = {
-    Description = "Stores Terraformremote files"
+    Description = "Stores Terraform remote files"
     ManagedBy   = "Terraform"
     Owner       = "Flavio Cruz"
     CreatedAt   = "2023-03-29"
