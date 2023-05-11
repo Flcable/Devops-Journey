@@ -8,9 +8,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "tfstate-387845387304"
-    key            = "05-autoscaling-app/terraform.tfstate"
-    region         = "eu-west-3"
+    bucket = "tfstate-387845387304"
+    key    = "05-autoscaling-app/terraform.tfstate"
+    region = "eu-west-3"
   }
 }
 

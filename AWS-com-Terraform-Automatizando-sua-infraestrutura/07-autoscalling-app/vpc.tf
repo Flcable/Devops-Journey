@@ -21,7 +21,7 @@ resource "aws_subnet" "this" {
   cidr_block        = each.value[0]
   availability_zone = each.value[1]
 
-  tags = merge(local.common_tags, { Nome = each.value[2] })
+  tags = merge(local.common_tags, { Name = each.value[2] })
 
 }
 
@@ -34,16 +34,16 @@ resource "aws_route_table" "public" {
     gateway_id = aws_internet_gateway.this.id
   }
 
-  tags = merge(local.common_tags, { Name = "Terraform Public Route"})
+  tags = merge(local.common_tags, { Name = "Terraform Public Route" })
 }
 
 resource "aws_route_table" "private" {
   vpc_id = aws_vpc.this.id
-  tags = merge(local.common_tags, { Name = "Terraform Private Route"})
+  tags   = merge(local.common_tags, { Name = "Terraform Private Route" })
 }
 
 resource "aws_route_table_association" "this" {
-  for_each = {for k, v in aws_subnet.this : v.tags.Nome => v.id}
+  for_each       = local.subnet_ids/*{ for k, v in aws_subnet.this : v.tags.Name => v.id }*/
   subnet_id      = each.value
   route_table_id = substr(each.key, 0, 3) == "Pub" ? aws_route_table.public.id : aws_route_table.private.id
 }
