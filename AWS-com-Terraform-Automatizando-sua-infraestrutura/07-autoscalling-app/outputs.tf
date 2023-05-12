@@ -7,7 +7,7 @@ output "igw_id" {
 }
 
 output "subnet_ids" {
-  value = local.subnet_ids/*{ for k, v in aws_subnet.this : v.tags.Name => v.id }*/
+  value = local.subnet_ids /*{ for k, v in aws_subnet.this : v.tags.Name => v.id }*/
 }
 
 
@@ -20,5 +20,22 @@ output "private_route_table_id" {
 }
 
 output "route_table_association_ids" {
-  value = [ for k, v in aws_route_table_association.this : v.id ]
+  value = [for k, v in aws_route_table_association.this : v.id]
 }
+
+output "sg_web_id" {
+  value = aws_security_group.web.id
+}
+
+output "sg_db_id" {
+  value = aws_security_group.db.id
+}
+
+output "sg_alb_id" {
+  value = aws_security_group.alb.id
+}
+
+output "alb_id" {
+  value = aws_lb.this.id
+}
+

@@ -21,11 +21,11 @@ variable "service_name" {
   description = ""
   default     = "autoscaling-app"
 }
-/*
+
 variable "instance_type" {
   type        = string
   description = ""
-  default     = "t3.micro"
+  default     = "t2.micro"
 }
 
 variable "instance_key_name" {
@@ -33,4 +33,3 @@ variable "instance_key_name" {
   description = ""
   default     = "Flavio_kp"
 }
-*/
